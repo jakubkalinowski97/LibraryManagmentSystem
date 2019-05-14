@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "e-Library";
+}
+
+<div class="card-container">
+    <a asp-area="" asp-controller="Books" asp-action="Index">
+        <div class="card">
+            <img src="~/images/books.jpg" alt="books" />
+            <div class="title">Books</div>
+        </div>
+    </a>
+    <a asp-area="" asp-controller="Patron" asp-action="Index">
+        <div class="card">
+            <img src="~/images/patrons.jpeg" alt="patrons" />
+            <div class="title">Patrons</div>
+        </div>
+    </a>
+    <a asp-area="" asp-controller="Books" asp-action="Add">
+        <div class="card">
+            <img src="~/images/your-checkouts.png" alt="Add New Books" />
+            <div class="title">Add New Books</div>
+        </div>
+    </a>
+</div>

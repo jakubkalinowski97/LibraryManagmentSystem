@@ -1,0 +1,42 @@
+﻿@model LibraryData.Models.Book
+
+<div class="container">
+    <div class="page-header clearfix detail-header">
+        <h2>New Book</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-controller="Books" asp-action="Add" method="post">
+
+                <input type="hidden" asp-for="ID" />
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" data-val-required="The Title field is required." />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Author" class="control-label"></label>
+                    <input asp-for="Author" class="form-control" data-val-required="The Author field is required." />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" data-val-required="The Description field is required." />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" data-val-required="The Year field is required." />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

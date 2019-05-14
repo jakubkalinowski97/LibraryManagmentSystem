@@ -1,0 +1,56 @@
+﻿@model Library.Models.BookDetailVM
+
+<div class="container">
+    <div class="page-header clearfix detail-header">
+        <h2>Detail book</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Model.Title (@Model.Year)</h2>
+            <h4>@Model.Author</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="font-size: 14px">@Model.Description</p>
+        </div>
+    </div>
+
+    @if (!@Model.IsCheckouted)
+    {
+        <a class="btn btn-success" role="button" asp-controller="Books" asp-action="Checkout" asp-route-id="@Model.ID">Check Out</a>
+    }
+    else
+    {
+        <p style="color: red; font-size: 10px">Book is unavaiable now</p>
+        <a class="btn btn-danger" role="button" asp-controller="Books" asp-action="HandleCheckin" asp-route-id="@Model.ID">Check In</a>
+    }
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Checkout History</h4>
+        <table class="table-bordered table-hover table">
+            <thead>
+                <tr>
+                    <th>Data Loaned</th>
+                    <th>Data Returned</th>
+                    <th>Patron</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var checkout in @Model.CheckoutHistory)
+                {
+                    <tr>
+                        <td>@checkout.CheckedOut</td>
+                        <td>@checkout.CheckedIn</td>
+                        <td>@checkout.Patron.FirstName @checkout.Patron.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Library.Models.PatronDetailVM
+
+<div class="container">
+    <div class="page-header clearfix detail-header">
+        <h2>Detail patron</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Model.FirstName @Model.LastName</h2>
+            <h4>Member since @Model.Since</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Checkout History</h4>
+        <table class="table-bordered table-hover table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Data Loaned</th>
+                    <th>Data Returned</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var checkout in @Model.CheckoutsHistory)
+                {
+                    <tr>
+                        <td>@checkout.Book.Title</td>
+                        <td>@checkout.CheckedOut</td>
+                        <td>@checkout.CheckedIn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

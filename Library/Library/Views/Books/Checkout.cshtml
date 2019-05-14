@@ -1,0 +1,29 @@
+﻿@model Library.Models.CheckoutVM
+
+<div class="container">
+    <div class="page-header clearfix detail-header">
+        <h2>Checkout book</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@Model.Title</h2>
+        </div>
+        <div class="col-md-6">
+            @using (Html.BeginForm("HandleCheckout", "Books", FormMethod.Post))
+            {
+                @Html.HiddenFor(x=>x.BookId)
+                <div>
+                    Please insert a Patron ID.
+                    @Html.TextBoxFor(x=>x.PatronId)
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Check out</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
